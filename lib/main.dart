@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:hwa_learn/202/ders8/tabbar_learn.dart';
+import 'package:hwa_learn/202/ders8/model/model_learn_view.dart';
+import 'package:hwa_learn/202/ders8/tabbar/tabbar_learn.dart';
 
 import 'package:hwa_learn/dribble_examples/personal_finance_dashboard.dart';
 //import 'package:hwa_learn/pageview_learn/pageview_learn.dart';
@@ -21,7 +22,7 @@ class MyApp extends StatelessWidget {
         tabBarTheme: TabBarThemeData(),
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: const TabBarLearn(),
+      home: const ModelLearnView(),
     );
   }
 }
