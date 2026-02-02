@@ -1,6 +1,6 @@
 //dartta initialize etmek gerekir değişkenleri class içinde
 
-class PostModel {
+class PostModel1 {
   int? userId;
   int? id;
   String? title;
@@ -88,7 +88,7 @@ class postModel8 {
   final int? userId;
   final int? id;
   final String? title;
-  final String? body;
+  String? body;
 
   postModel8({
     required this.body,
@@ -96,6 +96,12 @@ class postModel8 {
     required this.title,
     required this.userId,
   });
+  void changeBody(String? data) {
+    if (data != null && data.isNotEmpty) {
+      //body=data; final olduğu için değiştirilemiyor
+      body = data;
+    }
+  }
 
   postModel8 copyWith({int? userId, int? id, String? title, String? body}) {
     return postModel8(

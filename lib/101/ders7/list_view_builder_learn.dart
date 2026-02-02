@@ -18,6 +18,18 @@ class _ListViewBuilderLearnState extends State<ListViewBuilderLearn> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBodyBehindAppBar: true,
+      extendBody: true,
+      bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: Colors.transparent,
+        items: const [
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.settings),
+            label: 'Settings',
+          ),
+        ],
+      ),
       body: ListView.builder(
         padding: const EdgeInsets.all(8.0),
         itemCount: _items.length,

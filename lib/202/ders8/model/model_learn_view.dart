@@ -10,17 +10,17 @@ class ModelLearnView extends StatefulWidget {
 
 class _ModelLearnViewState extends State<ModelLearnView> {
   late final user5;
-  late final user8;
+  late var user8;
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
-    final user1 = PostModel();
+    final user1 = PostModel1();
     user1.body = "body";
     user1.id = 1;
     user1.title = "title";
     user1.userId = 10;
-    final user2 = PostModel()
+    final user2 = PostModel1()
       ..userId = 1
       ..id = 2
       ..title = "title2"
@@ -38,11 +38,11 @@ class _ModelLearnViewState extends State<ModelLearnView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(child: Text(user8.title)),
+      body: Center(child: Text(user8.body ?? "")),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           setState(() {
-            user8.title = "changed title";
+            user8.changeBody(null);
           });
         },
       ),
