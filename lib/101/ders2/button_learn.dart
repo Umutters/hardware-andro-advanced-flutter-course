@@ -31,7 +31,18 @@ class Buttonlearn extends StatelessWidget {
               onPressed: () {},
               child: Text('Elevated Button'),
             ),
-            OutlinedButton(onPressed: () {}, child: Text('Outlined Button')),
+            OutlinedButton(
+              onPressed: () {},
+              child: Text('Outlined Button'),
+              style: OutlinedButton.styleFrom().copyWith(
+                side: WidgetStateProperty.resolveWith((states) {
+                  if (states.contains(WidgetState.pressed)) {
+                    return BorderSide(color: Colors.red, width: 2);
+                  }
+                  return BorderSide(color: Colors.blue, width: 2);
+                }),
+              ),
+            ),
             IconButton(onPressed: () {}, icon: Icon(Icons.abc)),
             InkWell(child: Text(' InkWell '), onTap: () {}),
             Container(color: Colors.purple, height: 100),

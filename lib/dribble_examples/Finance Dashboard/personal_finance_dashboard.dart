@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:hwa_learn/dribble_examples/widgets/header.dart';
-import 'package:hwa_learn/dribble_examples/widgets/wallet_widget.dart';
+import 'package:hwa_learn/dribble_examples/Finance%20Dashboard/widgets/header.dart';
+import 'package:hwa_learn/dribble_examples/Finance%20Dashboard/widgets/wallet_widget.dart';
 
 class DashboardPage extends StatefulWidget {
   const DashboardPage({super.key});

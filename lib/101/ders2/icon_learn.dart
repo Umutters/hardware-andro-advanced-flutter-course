@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class IconLearn extends StatelessWidget {
   IconLearn({super.key});
   final IconSizes iconSizes = IconSizes();
-  @override+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
