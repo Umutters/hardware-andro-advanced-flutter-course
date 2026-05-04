@@ -24,10 +24,11 @@ class _TabBarLearnState extends State<TabBarLearn>
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         bottomNavigationBar: BottomAppBar(
           notchMargin: _notchedvalue,
-          shape: const CircularNotchedRectangle(),
+          shape: CircularNotchedRectangle(),
           child: _MyTabBar(tabController: _tabController),
         ),
         floatingActionButton: FloatingActionButton(
+          shape: CircleBorder(),
           onPressed: () {
             _tabController.animateTo(
               _tabController.index = _MyTabViews.home.index,
@@ -56,15 +57,15 @@ class _MyTabBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return TabBar(
+      labelStyle: context.mediumTextSyle,
       controller: _tabController,
-      labelColor: Colors.white,
+      labelColor: Colors.blue,
       tabs: _MyTabViews.values
           .map(
             (e) => Tab(
-              text: e.name,
+              text: e.labelName,
               icon: Icon(switch (e) {
                 _MyTabViews.home => Icons.home,
-                _MyTabViews.profiles => Icons.person,
                 _MyTabViews.settings => Icons.settings,
               }),
             ),
@@ -83,15 +84,26 @@ class _MyTabBarView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TabBarView(
-      physics: const NeverScrollableScrollPhysics(),
+      //physics: const NeverScrollableScrollPhysics(),
       controller: _tabController,
       children: [
         Container(color: Colors.red),
-        Container(color: Colors.blue),
         Container(color: Colors.green),
       ],
     );
   }
 }
 
-enum _MyTabViews { home, profiles, settings }
+enum _MyTabViews { home, settings }
+
+extension _MyTabViewsExtension on _MyTabViews {
+  String get labelName => switch (this) {
+    _MyTabViews.home => 'Home',
+    _MyTabViews.settings => 'Settings',
+  };
+}
+
+extension _contextExtension on BuildContext {
+  double get width => MediaQuery.sizeOf(this).width;
+  TextStyle get mediumTextSyle => Theme.of(this).textTheme.titleMedium!;
+}

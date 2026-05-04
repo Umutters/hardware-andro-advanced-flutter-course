@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:hwa_learn/101/ders7/changing_background_color_example.dart';
-import 'package:hwa_learn/101/ders7/color_life_cycle.dart';
-import 'package:hwa_learn/101/ders7/navigate_detail.dart';
+import 'package:hwa_learn/101/ders6/changing_background_color_example.dart';
+import 'package:hwa_learn/101/ders6/color_life_cycle.dart';
+import 'package:hwa_learn/101/ders6/navigate_detail.dart';
 
 class NavigationLearn extends StatefulWidget {
   const NavigationLearn({super.key});

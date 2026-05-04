@@ -41,17 +41,20 @@ class CustomButton extends StatelessWidget
       style: ElevatedButton.styleFrom(
         backgroundColor: redColor,
         foregroundColor: redColor,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(25)),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(20),
+            bottomRight: Radius.circular(20),
+          ),
+        ),
       ),
       onPressed: onPressed2 ?? onPressed,
-      child: Padding(
-        padding: normalPadding,
-        child: Text(
-          title,
-          style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-            color: white,
-            fontWeight: FontWeight.bold,
-          ),
+      child: Text(
+        title,
+        style: Theme.of(context).textTheme.headlineSmall?.copyWith(
+          color: white,
+          fontWeight: FontWeight.w400,
+          fontSize: 12,
         ),
       ),
     );

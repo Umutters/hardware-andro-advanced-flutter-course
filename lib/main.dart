@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:hwa_learn/101/ders4/stack_learn.dart';
-import 'package:hwa_learn/demos/stack_view_demo.dart';
+import 'package:hwa_learn/202/ders10/Theme/light_theme.dart';
+import 'package:hwa_learn/202/ders10/theme_learn_view.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,17 +14,14 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      theme: ThemeData(
-        appBarTheme: const AppBarTheme(
-          centerTitle: true,
-          backgroundColor: Colors.transparent,
-          elevation: 0,
-          titleTextStyle: const TextStyle(
-            color: Colors.white,
-            fontSize: 20,
-            fontWeight: FontWeight.w600,
-          ),
+      theme: LightTheme().lightTheme,
+      /*ThemeData.dark().copyWith(
+        inputDecorationTheme: const InputDecorationTheme(filled: true),
+        floatingActionButtonTheme: const FloatingActionButtonThemeData(
+          backgroundColor: Colors.blueAccent,
+          foregroundColor: Colors.white,
         ),
+        appBarTheme: _appBarTheme,
         tabBarTheme: TabBarThemeData(),
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         textTheme: const TextTheme(
@@ -33,21 +30,38 @@ class MyApp extends StatelessWidget {
             fontWeight: FontWeight.w600,
             color: Colors.white,
           ),
-        ),
-        elevatedButtonTheme: ElevatedButtonThemeData(
-          style: ElevatedButton.styleFrom(
-            backgroundColor: Colors.blueAccent,
-            foregroundColor: Colors.white,
-            padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 10),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(30),
-            ),
-            textStyle: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+          headlineLarge: TextStyle(
+            fontSize: 80,
+            fontWeight: FontWeight.bold,
+            color: Colors.white,
           ),
         ),
-      ),
-
-      home: StackViewDemo(),
+        elevatedButtonTheme: _elevatedButtonThemeData,
+        bottomAppBarTheme: const BottomAppBarThemeData(
+          shape: AutomaticNotchedShape(RoundedRectangleBorder()),
+        ),
+      ),*/
+      home: ThemeLearnView(),
     );
   }
 }
+
+const AppBarTheme _appBarTheme = AppBarTheme(
+  centerTitle: true,
+  backgroundColor: Color.fromARGB(215, 98, 90, 90),
+  elevation: 0,
+  titleTextStyle: TextStyle(
+    color: Colors.white,
+    fontSize: 20,
+    fontWeight: FontWeight.w600,
+  ),
+);
+final ElevatedButtonThemeData _elevatedButtonThemeData =
+    ElevatedButtonThemeData(
+      style: ElevatedButton.styleFrom(
+        backgroundColor: Colors.blueAccent,
+        foregroundColor: Colors.white,
+        padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 10),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
+      ),
+    );

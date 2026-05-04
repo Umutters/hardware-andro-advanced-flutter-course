@@ -2,9 +2,13 @@ import 'package:flutter/material.dart';
 
 class StatelessLearn extends StatelessWidget {
   const StatelessLearn({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: Column(children: []));
+    return Scaffold(
+      appBar: AppBar(),
+      body: Column(children: [_TitleWidget(), Text('Stateless Widget')]),
+    );
   }
 }
 

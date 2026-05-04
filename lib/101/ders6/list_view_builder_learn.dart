@@ -18,10 +18,10 @@ class _ListViewBuilderLearnState extends State<ListViewBuilderLearn> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(title: const Text('ListView Builder Learn')),
       extendBodyBehindAppBar: true,
       extendBody: true,
       bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: Colors.transparent,
         items: const [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
           BottomNavigationBarItem(
@@ -31,7 +31,7 @@ class _ListViewBuilderLearnState extends State<ListViewBuilderLearn> {
         ],
       ),
       body: ListView.builder(
-        padding: const EdgeInsets.all(8.0),
+        padding: PaddingUtility().paddingAll,
         itemCount: _items.length,
         itemBuilder: (context, index) {
           return CategoryCard(model: _items[index]);
@@ -49,24 +49,17 @@ class CategoryCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      color: Colors.yellow,
+      color: const Color.fromARGB(255, 57, 50, 50),
       margin: PaddingUtility().paddingAll,
       child: Column(
         children: [
           Container(
-            margin: PaddingUtility().paddingTop,
-            height: 200,
-            width: 300,
+            width: 275,
+            height: 275,
             decoration: BoxDecoration(
-              color: Colors.lightBlue,
               borderRadius: PaddingUtility().borderRadius,
             ),
-            child: Container(
-              decoration: BoxDecoration(
-                borderRadius: PaddingUtility().borderRadius,
-              ),
-              child: Image.asset(_model.imagePath, fit: BoxFit.fill),
-            ),
+            child: Image.asset(_model.imagePath, fit: BoxFit.fill),
           ),
           Padding(
             padding: PaddingUtility().paddingAll,
@@ -87,13 +80,14 @@ class CategoryCard extends StatelessWidget {
 class PaddingUtility {
   final paddingAll = const EdgeInsets.all(12.0);
   final paddingTop = const EdgeInsets.only(top: 12.0);
-  final borderRadius = BorderRadius.circular(12);
+  final borderRadius = BorderRadius.circular(20);
 }
 
 class CardModel {
   final String title;
   final String imagePath;
   final double price;
+
   CardModel({
     required this.title,
     required this.imagePath,
@@ -107,7 +101,7 @@ class CardItems {
     items = List.generate(
       5, // Number of items you want
       (index) => CardModel(
-        title: 'Item $index', // Uses the current index (0, 1, 2...)
+        title: 'Item ${index + 1}', // Uses the current index (0, 1, 2...)
         imagePath: 'assets/images/MonaLisa.png',
         price: (index + 1) * 1.5, // Just generating a dummy price
       ),
