@@ -25,8 +25,27 @@ class SharedManager {
     }
   }
 
+  Future<(bool, String)> saveStringList(
+    List<String> value,
+    SharedKeys key,
+  ) async {
+    _checkInitialized(_prefs);
+    if (await _prefs?.setStringList(key.name, value) == false) {
+      throw Exception("SharedPreferences saveStringList failed");
+    } else {
+      return (true, "başarılı bir şekilde kaydedildi");
+    }
+  }
+
   String? getString(SharedKeys key) {
+    _checkInitialized(_prefs);
+
     return _prefs?.getString(key.name);
+  }
+
+  List<String>? getStringList(SharedKeys key) {
+    _checkInitialized(_prefs);
+    return _prefs?.getStringList(key.name);
   }
 
   Future<(bool, String)> removeValue(SharedKeys key) async {
