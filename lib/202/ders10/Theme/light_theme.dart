@@ -5,6 +5,22 @@ class LightTheme {
   late ThemeData lightTheme;
   LightTheme() {
     lightTheme = ThemeData(
+      appBarTheme: const AppBarTheme(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.only(
+            bottomLeft: Radius.circular(20),
+            bottomRight: Radius.circular(20),
+          ),
+        ),
+        centerTitle: true,
+        backgroundColor: Color.fromARGB(215, 98, 90, 90),
+        elevation: 0,
+        titleTextStyle: TextStyle(
+          color: Colors.white,
+          fontSize: 20,
+          fontWeight: FontWeight.w600,
+        ),
+      ),
       checkboxTheme: CheckboxThemeData(
         fillColor: WidgetStatePropertyAll(Colors.greenAccent),
       ),
@@ -27,5 +43,5 @@ class LightTheme {
 
 class _LightColors {
   final Color primaryColor = const Color.fromARGB(255, 37, 5, 5);
-  final Color ahrimanBlue = Color.fromRGBO(1, 23, 141, 171);
+  final Color ahrimanBlue = const Color.fromRGBO(1, 23, 141, 171);
 }

@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:hwa_learn/202/ders10/Theme/light_theme.dart';
-import 'package:hwa_learn/202/ders10/theme_learn_view.dart';
+import 'package:hwa_learn/202/ders12/cache/shared_cachle_learn.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(const MyApp());
 }
 
@@ -41,27 +42,7 @@ class MyApp extends StatelessWidget {
           shape: AutomaticNotchedShape(RoundedRectangleBorder()),
         ),
       ),*/
-      home: ThemeLearnView(),
+      home: const SharedCacheLearn(),
     );
   }
 }
-
-const AppBarTheme _appBarTheme = AppBarTheme(
-  centerTitle: true,
-  backgroundColor: Color.fromARGB(215, 98, 90, 90),
-  elevation: 0,
-  titleTextStyle: TextStyle(
-    color: Colors.white,
-    fontSize: 20,
-    fontWeight: FontWeight.w600,
-  ),
-);
-final ElevatedButtonThemeData _elevatedButtonThemeData =
-    ElevatedButtonThemeData(
-      style: ElevatedButton.styleFrom(
-        backgroundColor: Colors.blueAccent,
-        foregroundColor: Colors.white,
-        padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 10),
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
-      ),
-    );
