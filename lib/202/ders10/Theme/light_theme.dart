@@ -5,6 +5,16 @@ class LightTheme {
   late ThemeData lightTheme;
   LightTheme() {
     lightTheme = ThemeData(
+      elevatedButtonTheme: ElevatedButtonThemeData(
+        style: ElevatedButton.styleFrom(
+          backgroundColor: _lightColors.primaryColor,
+          foregroundColor: Colors.white,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10),
+          ),
+        ),
+      ),
+
       appBarTheme: const AppBarTheme(
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.only(

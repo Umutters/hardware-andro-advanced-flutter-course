@@ -73,14 +73,15 @@ class CustomTitleWidget extends StatelessWidget {
 }
 
 class CustomImage extends StatelessWidget {
-  const CustomImage({super.key});
-
+  const CustomImage({super.key, this.imageWidth = 250, this.imageHeight = 250});
+  final double imageWidth;
+  final double imageHeight;
   @override
   Widget build(BuildContext context) {
     return Image.asset(
       ImagePaths.bookImage,
-      width: 250,
-      height: 250,
+      width: imageWidth,
+      height: imageHeight,
       fit: BoxFit.fill,
     );
   }

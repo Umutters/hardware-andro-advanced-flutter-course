@@ -1,16 +1,14 @@
-import 'package:bloc/bloc.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:hwa_learn/bloc_learn/bloc_states.dart';
 
-class CounterCubit extends Cubit<int> {
-  CounterCubit(super.initialState);
+class ThemeCubit extends Cubit<ThemeStates> {
+  ThemeCubit() : super(LightThemeState());
 
-  void increment() => emit(state + 1);
-}
-
-Future<void> main() async {
-  final cubit = CounterCubit(1);
-  final subscription = cubit.stream.listen(print);
-  cubit.increment();
-  await Future.delayed(Duration.zero);
-  await subscription.cancel();
-  await cubit.close();
+  void changeTheme() {
+    if (state is DarkThemeState) {
+      emit(LightThemeState());
+    } else {
+      emit(DarkThemeState());
+    }
+  }
 }
