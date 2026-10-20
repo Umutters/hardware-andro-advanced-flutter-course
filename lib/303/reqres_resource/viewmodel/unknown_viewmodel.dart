@@ -11,8 +11,9 @@ abstract class UnknownViewModel extends LoadingStates<UnknownView>
 
   @override
   void initState() {
-    unknownService = UnknownService(service);
+    unknownService = UnknownService();
     super.initState();
+    fetchUnknownList();
   }
 
   Future<void> fetchUnknownList() async {

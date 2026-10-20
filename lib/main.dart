@@ -8,14 +8,22 @@ import 'package:hwa_learn/202/ders12/cache/shared_list_cache.dart';
 import 'package:hwa_learn/202/ders13/alert_learn.dart';
 import 'package:hwa_learn/202/ders13/sheet_learn.dart';
 import 'package:hwa_learn/303/call_back_learn.dart';
+import 'package:hwa_learn/303/lottie_learn.dart';
 import 'package:hwa_learn/303/part/part_of_learn.dart';
 import 'package:hwa_learn/303/reqres_resource/view/unknown_view.dart';
 import 'package:hwa_learn/bloc_learn/cubit_learn.dart';
 import 'package:hwa_learn/demos/theme_change.dart';
+import 'package:hwa_learn/product/global/theme_notifier.dart';
+import 'package:provider/provider.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  runApp(BlocProvider(create: (context) => ThemeCubit(), child: const MyApp()));
+  runApp(
+    MultiProvider(
+      providers: [ChangeNotifierProvider(create: (context) => ThemeNotifier())],
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -24,9 +32,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      routes: {
+        '/shared': (context) => const SharedCacheLearn(),
+        '/theme': (context) => const ThemeChange(),
+      },
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      theme: LightTheme().lightTheme,
+      theme: context.watch<ThemeNotifier>().themeMode,
       /*ThemeData.dark().copyWith(
         inputDecorationTheme: const InputDecorationTheme(filled: true),
         floatingActionButtonTheme: const FloatingActionButtonThemeData(
@@ -53,7 +65,7 @@ class MyApp extends StatelessWidget {
           shape: AutomaticNotchedShape(RoundedRectangleBorder()),
         ),
       ),*/
-      home: const UnknownView(message: 'Hello'),
+      home: const LottieLearn(),
     );
   }
 }
